@@ -2,11 +2,11 @@ import {useState} from 'react';
 import QuestionCard from './components/QuestionCard';
 import {Difficulty, fetchQuestions, QuestionState} from './API';
 
-type AnswerObject = {
+export type AnswerObject = {
     question: string;
     answer: string;
     correct: boolean;
-    correctAnswer: boolean;
+    correctAnswer: string;
 };
 
 const TOTAL_QUESTIONS = 10;
@@ -35,9 +35,32 @@ function App() {
         setLoading(false);
     };
 
-    const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {};
+    const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
+        if (!gameOver) {
+            // get users answer
+            const answer = e.currentTarget.value;
+            // check answer
+            const correct = questions[number].correct_answer === answer;
+            // set score
+            if (correct) setScore((prev) => prev + 1);
+            // save answer
+            const answerObject = {
+                question: questions[number].question,
+                answer,
+                correct,
+                correctAnswer: questions[number].correct_answer,
+            };
+            setUserAnswers((prev) => [...prev, answerObject]);
+        }
+    };
 
-    const nextQuestion = () => {};
+    const nextQuestion = () => {
+        const nextQuestion = number + 1;
+        if (nextQuestion === TOTAL_QUESTIONS) {
+            setGameOver(true);
+        }
+        setNumber(nextQuestion);
+    };
 
     return (
         <div className='App'>
@@ -47,7 +70,7 @@ function App() {
                     Start
                 </button>
             ) : null}
-            {!gameOver ? <p className='score'>Score</p> : null}
+            {!gameOver ? <p className='score'>Score:{score}</p> : null}
             {loading ? <p>Loading...</p> : null}
             {!loading && !gameOver && (
                 <QuestionCard
@@ -55,7 +78,7 @@ function App() {
                     totalQuestions={TOTAL_QUESTIONS}
                     question={questions[number].question}
                     answers={questions[number].answers}
-                    userAnswer={userAnswers ? userAnswers[number] : undefined}
+                    userAnswer={userAnswers[number]}
                     callback={checkAnswer}
                 />
             )}
