@@ -59,5 +59,6 @@ quiz-app-react/
 │── package.json            # Dependencies and scripts
 │── README.md               # Project documentation
 
+
 ## 🤝 Contributing
 Feel free to fork the repository, open issues, or submit pull requests to improve the app.
