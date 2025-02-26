@@ -47,7 +47,7 @@ This app fetches quiz questions from the Open Trivia Database API. The questions
 https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple
 
 ## 📁 Project Structure
-```sh
+```
 quiz-app-react/
 │── src/
 │   ├── components/         # Reusable UI components
@@ -58,7 +58,7 @@ quiz-app-react/
 │── public/                 # Static assets
 │── package.json            # Dependencies and scripts
 │── README.md               # Project documentation
-
+```
 
 ## 🤝 Contributing
 Feel free to fork the repository, open issues, or submit pull requests to improve the app.
