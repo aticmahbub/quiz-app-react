@@ -40,13 +40,14 @@ To run the project locally, follow these steps:
    npm start
 
 
-🔗 API Integration
+## 🔗 API Integration
 This app fetches quiz questions from the Open Trivia Database API. The questions are retrieved dynamically based on difficulty level and category.
 
-API Endpoint Example:
+# API Endpoint Example:
 https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple
 
-📁 Project Structure
+## 📁 Project Structure
+```sh
 quiz-app-react/
 │── src/
 │   ├── components/         # Reusable UI components
@@ -58,8 +59,5 @@ quiz-app-react/
 │── package.json            # Dependencies and scripts
 │── README.md               # Project documentation
 
-🤝 Contributing
+#🤝 Contributing
 Feel free to fork the repository, open issues, or submit pull requests to improve the app.
-
-📜 License
-This project is open-source and available under the MIT License.
