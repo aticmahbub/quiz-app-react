@@ -7,7 +7,7 @@ A simple quiz application built with React and TypeScript, fetching trivia quest
 Check out the live version of the app here:  
 [Quiz App](https://atics-quiz-app-react.netlify.app/)
 
-## 📂 Repository
+## 📂 Repository 
 
 You can find the source code on GitHub:  
 [GitHub Repository](https://github.com/aticmahbub/quiz-app-react.git)
